@@ -24,15 +24,14 @@ class CommandManager:
     def register_command(self, command: Type[BaseCommand]):
         """Регистрация команды в приложении"""
         command_instance = command(settings=self._settings)
-        command_full_text = f"{command_instance.prefix}{command_instance.text}"
-        self._check_command_exist(command_full_text)
-        self._commands.append(command_full_text)
+        self._check_command_exist(command_instance)
+        self._commands.append(command_instance.full_text)
 
         self._app.add_handler(
             pyrogram.handlers.MessageHandler(callback=command_instance.handle, filters=command_instance.filters)
         )
-        logger.info(f"Добавлена команда {command_full_text}: {command_instance.description}")
+        logger.info(f"Добавлена команда {command_instance.full_text}: {command_instance.description}")
 
-    def _check_command_exist(self, command_full_text: str) -> None:
-        if command_full_text in self._commands:
-            raise CommandAlreadyExistError(f"Команда '{command_full_text}' уже есть!")
+    def _check_command_exist(self, command_instance: BaseCommand) -> None:
+        if command_instance.full_text in self._commands:
+            raise CommandAlreadyExistError(f"Команда '{command_instance.full_text}' уже есть!")
