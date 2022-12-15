@@ -43,7 +43,7 @@ class BaseCommand(ABC):
         """Обработчик команды"""
         self.log(f"start, text={message.text}, {message=}")
         self.execute(client=client, message=message)
-        self.log(f"finish")
+        self.log("finish")
 
     @abstractmethod
     def execute(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:

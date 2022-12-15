@@ -2,13 +2,6 @@ include .env
 export
 
 
-# Docker
-d_b_run: docker_build docker_run
-
-d_run: docker_run
-docker_run:
-	docker run -it --env-file .env -v $(pwd):/user_bot user_bot
-
 d_b: docker_build
 docker_build:
 	docker build -t user_bot .
