@@ -17,10 +17,6 @@ class TypingCommand(BaseDotCommand):
     def description(self) -> str:
         return "Команда медленного набора текста"
 
-    @property
-    def filters(self) -> pyrogram.filters.Filter:
-        return pyrogram.filters.command(self.text, prefixes=self.prefix) & pyrogram.filters.me
-
     def execute(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:
         original_text = self._calculate_original_text(message_text=message.text)
         remaining_text = original_text

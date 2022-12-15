@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     TYPING_PAUSE_INTERVAL: float = 0.05
     TYPING_SYMBOL_INTERVAL: float = 0.02
     FLOOD_WAIT_INTERVAL: float = 0.05
+    JOKE_CHOICE_INTERVAL: float = 1.0
 
 
 def get_settings() -> Settings:

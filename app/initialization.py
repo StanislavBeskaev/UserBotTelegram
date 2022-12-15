@@ -24,3 +24,4 @@ def _add_commands(app: pyrogram.Client, settings: Settings) -> None:
     command_manager.register_command(command=commands.TypingCommand)
     command_manager.register_command(command=commands.HackCommand)
     command_manager.register_command(command=commands.HeartCommand)
+    command_manager.register_command(command=commands.JokeCommand)

@@ -23,10 +23,9 @@ class BaseCommand(ABC):
         ...
 
     @property
-    @abstractmethod
     def filters(self) -> pyrogram.filters.Filter:
         """Фильтры команды"""
-        ...
+        return pyrogram.filters.command(self.text, prefixes=self.prefix) & pyrogram.filters.me
 
     @property
     @abstractmethod
@@ -60,3 +59,11 @@ class BaseDotCommand(BaseCommand, ABC):
     @property
     def prefix(self) -> str:
         return "."
+
+
+class BaseExclamationMarkCommand(BaseCommand, ABC):
+    """Базовая команда начинающаяся со знака восклицания"""
+
+    @property
+    def prefix(self) -> str:
+        return "!"

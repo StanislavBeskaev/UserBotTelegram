@@ -19,10 +19,6 @@ class HeartCommand(BaseDotCommand):
     def description(self) -> str:
         return f"Команда для рисования сердечка с указанным символом (по умолчанию {self.default_symbol})"
 
-    @property
-    def filters(self) -> pyrogram.filters.Filter:
-        return pyrogram.filters.command(self.text, prefixes=self.prefix) & pyrogram.filters.me
-
     def execute(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:
         symbol = (
             message.text[len(f"{self.full_text} ")]

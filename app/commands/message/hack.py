@@ -18,10 +18,6 @@ class HackCommand(BaseDotCommand):
     def description(self) -> str:
         return "Команда для взлома пентагона (понарошку)"
 
-    @property
-    def filters(self) -> pyrogram.filters.Filter:
-        return pyrogram.filters.command(self.text, prefixes=self.prefix) & pyrogram.filters.me
-
     def execute(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:
         perc = 0
 

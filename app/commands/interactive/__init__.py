@@ -1,0 +1,1 @@
+from app.commands.interactive.joke import JokeCommand
