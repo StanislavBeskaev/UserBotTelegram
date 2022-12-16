@@ -40,7 +40,7 @@ class BaseCommand(ABC):
 
     def handle(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:
         """Обработчик команды"""
-        self.log(f"start, text={message.text}, {message=}")
+        self.log(f"start, text={message.text}, {message=} {client=}")
         self.execute(client=client, message=message)
         self.log("finish")
 
