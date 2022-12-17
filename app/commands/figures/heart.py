@@ -3,7 +3,6 @@ import pyrogram
 from app.commands.base_command import BaseDotCommand
 
 
-# TODO переместить в figures или название получше
 class HeartCommand(BaseDotCommand):
     """Команда для рисования сердечка"""
 
