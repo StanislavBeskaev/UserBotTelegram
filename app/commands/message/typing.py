@@ -13,10 +13,6 @@ class TypingCommand(BaseDotCommand):
     def text(self) -> str:
         return "type"
 
-    @property
-    def description(self) -> str:
-        return "Команда медленного набора текста"
-
     def execute(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:
         original_text = self._calculate_original_text(message_text=message.text)
         remaining_text = original_text

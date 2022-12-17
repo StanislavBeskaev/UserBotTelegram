@@ -14,10 +14,6 @@ class HackCommand(BaseDotCommand):
     def text(self) -> str:
         return "hack"
 
-    @property
-    def description(self) -> str:
-        return "Команда для взлома пентагона (понарошку)"
-
     def execute(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:
         perc = 0
 

@@ -14,10 +14,6 @@ class JokeCommand(BaseExclamationMarkCommand):
     def text(self) -> str:
         return "joke"
 
-    @property
-    def description(self) -> str:
-        return self.__doc__
-
     def execute(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:
         message.edit("Выбираю случайный анекдот")
         anecdote_result = get_anecdote()

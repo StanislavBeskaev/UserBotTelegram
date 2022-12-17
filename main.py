@@ -4,7 +4,6 @@ from app.initialization import init_app
 from app.settings import get_settings
 
 
-# TODO написать readme, указать переменные окружения, описать как запускать
 def main():
     logger.debug("Старт")
 

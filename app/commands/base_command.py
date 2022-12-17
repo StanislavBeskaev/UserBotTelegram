@@ -17,10 +17,9 @@ class BaseCommand(ABC):
         return f"{self.prefix}{self.text}"
 
     @property
-    @abstractmethod
     def description(self) -> str:
         """Описание команды"""
-        ...
+        return self.__doc__
 
     @property
     def filters(self) -> pyrogram.filters.Filter:

@@ -1,8 +1,7 @@
-from dataclasses import dataclass
 import random
+from dataclasses import dataclass
 
 import requests
-
 
 RETRIES_COUNT = 5
 
@@ -10,6 +9,7 @@ RETRIES_COUNT = 5
 @dataclass
 class Anecdote:
     """Класс анекдота с источником и успехом получения"""
+
     text: str
     source: str
     success: bool

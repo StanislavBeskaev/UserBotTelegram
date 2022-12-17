@@ -7,7 +7,14 @@ from loguru import logger
 from app.commands.base_command import BaseExclamationMarkCommand
 
 
-# TODO подумать об декораторе для регистрации команды
+def func():
+    pass
+
+
+class Some:
+    pass
+
+
 class CatCommand(BaseExclamationMarkCommand):
     """Команда для отправки котика"""
 
@@ -17,10 +24,6 @@ class CatCommand(BaseExclamationMarkCommand):
     @property
     def text(self) -> str:
         return "cat"
-
-    @property
-    def description(self) -> str:
-        return self.__doc__
 
     def execute(self, client: pyrogram.client.Client, message: pyrogram.types.Message) -> None:
         message.edit("Выбираю котика, ждите...")
